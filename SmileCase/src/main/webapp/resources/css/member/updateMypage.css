@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+#updateDiv {
+	margin: 50px 200px 100px 170px;
+	text-align: center;
+}
+
+#updateTitle {
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: default; /* 삼각형에 꼬리달린 모양 */
+}
+
+#updateForm {
+	border-radius: 10px;
+	background-color: #EEE;
+	padding: 30px 50px 0px 50px;
+	width: 700px;
+    margin: 0 auto 30px auto;
+    border-top: 3px solid rgba(155, 89, 182, 0.5);
+}
+
+#updateForm td{
+	border-bottom: 1px solid #999999;
+}
+
+#updateForm tr, #updateForm td{
+	height: 60px;
+	vertical-align: middle;
+}
+
+#updateForm input{
+	width: 200px;
+	height: 28px;
+	margin-right: 5px;
+	padding: 5px 10px;
+	border-style: none;
+}
+
+#updateForm input:focus{
+	border: none;
+	outline: 2px solid rgba(155, 89, 182, 0.5);
+}
+
+#updateForm table{
+	border-collapse: collapse;
+	margin: 0px auto;
+}
+
+#updateForm span{
+	font-size: 10px;
+}
+
+.first_td{
+	width: 150px;
+	padding-right: 6px;
+	font-size: 15px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.second_td{
+	width: 230px;
+}
+
+.third_td{
+	width: 150px;
+	text-align: left;
+}
+
+#regexp_pwd, #regexp_email{ /* 정규식 안내 멘트 */
+	text-align: left;
+	display: none;
+	color: red;
+	font-weight: bold;
+}
+
+select{
+	width: 100px;
+	height: 28px;
+	border: none;
+}
+
+#address_tr td{
+	border-bottom: none;
+}
+
+
+#zoneCode, #mainAddress:hover{
+	cursor: default;
+}
+
+#zoneCode, #mainAddress:hover{
+	cursor: default;
+}
+
+#searchAddress_td{
+	text-align: left;
+}
+
+#searchAddress{
+	width: 104px;
+	height: 28px;
+	margin-left: 5px;
+	border-style: none;
+	border-radius: 6px;
+	background-color: rgba(155, 89, 182, 0.5);
+	cursor: pointer;
+}
+
+#submit_tr td{
+	border-bottom: none;
+}
+
+#submit_tr button{
+	width: 200px;
+	height: 50px;
+	background-color: rgba(155, 89, 182, 0.5);
+	font-size: 16px;
+	border-style: none;
+	border-radius: 6px;
+	margin-top: 40px;
+	cursor: pointer;
+}
+
+#ac_div{
+	padding: 20px 0px 10px 0px;
+	text-align: right;
+}
+
+#mem_del_btn{
+	text-decoration: underline;
+	color: gray;
+	cursor: pointer;
+}

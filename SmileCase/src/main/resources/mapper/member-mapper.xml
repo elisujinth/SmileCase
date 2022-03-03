@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="memberMapper">
+	
+	<!-- 로그인 -->
+	<select id="loginMember" resultMap="memberResultMap">
+		select * 
+		from member
+		where mem_id=#{mem_id} and mem_pwd=#{mem_pwd}
+	</select>
+	<!--
+		DB컬럼명이랑 vo 변수명이 동일한 경우) 
+		select 태그에서 resultMap 대신 [resultType=vo명]으로 적어도됨
+									ex. [resultType=Member]
+	-->
+	<!-- 			  ↓ Mybatis-config.xml에서 typeAlias 지정했기 때문에 패키지명 다 안쓰고 Member라고만 적어도 됨  -->
+	<resultMap type="Member" id="memberResultMap">
+		<id column="MEM_ID" property="mem_id"/>
+		<result column="MEM_NAME" property="mem_name"/>
+		<result column="MEM_PWD" property="mem_pwd"/>
+		<result column="MEM_PHONE" property="mem_phone"/>
+		<result column="MEM_EMAIL" property="mem_email"/>
+		<result column="MEM_ZIPCODE" property="mem_zipcode"/>
+		<result column="MEM_ADDRESS" property="mem_address"/>
+		<result column="MEM_DETAIL_ADDR" property="mem_detail_addr"/>
+	</resultMap>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		insert into member
+		values (#{mem_id}, #{mem_name}, #{mem_pwd}, #{mem_phone}, #{mem_email}, #{mem_zipcode}, #{mem_address}, #{mem_detail_addr})
+	</insert>
+	
+	<!-- 비밀번호 확인하기 -->
+	<!-- 데이터 형태 : String => 별칭(alias) : string -->
+	<select id="checkPwd" resultType="string">
+		select mem_pwd
+		from member
+		where mem_id=#{loginUserId}
+	</select>
+	
+	<!-- 회원 정보 가져오기 -->
+	<select id="selectMember" resultMap="memberResultMap">
+		select *
+		from member
+		where mem_id=#{loginUserId}
+	</select>
+	
+	<!-- 회원 정보 수정 -->
+	<update id="updateMember">
+		update member
+		set mem_name=#{mem_name}, mem_pwd=#{mem_pwd}, mem_phone=#{mem_phone}, mem_email=#{mem_email}, mem_zipcode=#{mem_zipcode}, mem_address=#{mem_address}, mem_detail_addr=#{mem_detail_addr}
+		where mem_id=#{mem_id}
+	</update>
+	
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteMember">
+		delete from member
+		where mem_id=#{loginUserId}
+	</delete>
+	
+	<!-- 아이디 찾기 -->
+	<select id="findId" resultMap="memberResultMap">
+		select *
+		from member
+		where mem_name=#{mem_name} and mem_email=#{mem_email}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="findPwd" resultMap="memberResultMap">
+		select *
+		from member
+		where mem_id=#{mem_id}
+	</select>
+	
+	<!-- 비밀번호 찾기 - DB에 임시비밀번호 적용 -->
+	<update id="changePwd">
+		update member
+		set mem_pwd=#{mem_pwd}
+		where mem_id=#{mem_id}
+	</update>
+	
+	<!-- 관리자 - 회원관리 - 회원 전체 목록 가져오기 -->
+	<select id="selectAllMember" resultMap="memberResultMap">
+		select * 
+		from member
+		where mem_id != #{admin}
+	</select>
+</mapper>

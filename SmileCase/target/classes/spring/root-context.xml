@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- 
+		root-context.xml : mvc 설정과 관련된 여러 처리를 담당하는 설정 파일 (ex. DAO, VO, Service 등)
+		xml의 형태를 어떻게 사용할 것인가 Bean(객체)들을 관리하는 문서(xml)이다.
+		필요할 때마다 주입해서 사용하기 위해 이곳에 Bean을 등록해둠
+		(bean 태그를 사용해서 등록함. id="bean 이름" class="클래스의 위치")
+		다운받은 라이브러리들을 사용하는 곳
+		================================================================================
+		변수 설정 : property 태그 사용 / name="변수이름" value="저장할 값"
+		보안을 위해 직접 작성하지 않고 properties를 el태그로 불러오는 방식도 사용 가능 (ex. value="${jdbc.username}")
+	 -->
+	
+	<!-- DataSource 등록 -->
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<property name="username" value="sujin"/>
+		<property name="password" value="sujin"/>	
+	</bean>
+	
+	<!-- mybatis 주요 객체 sqlSessionFactory클래스 Bean 등록 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- mybatis 설정 파일을 변수 configLocation에 저장 -->
+		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
+		<!-- setter를 통한 의존성 주입 -->
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- mybatis를 쉽게 사용할 Template클래스 Bean 등록 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSession"/>
+	</bean>
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	
+	<!-- 파일 업로드 설정
+		Multipart 지원 기능을 사용하려면 먼저 MultipartResolver를 스프링 설정 파일에 등록해야 함.
+		스프링에서 기본으로 제공하는 MultipartResolver는 CommonsMultipartResolver임.
+		CommonsMultipartResolver를 MultipartResolver로 사용하려면, 빈 이름을 "multipartResolver"로 등록 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize"  value="200000" />
+		<property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+	
+</beans>

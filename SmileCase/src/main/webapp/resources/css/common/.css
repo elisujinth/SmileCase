@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+a{
+	/* 하이퍼링크 밑줄 없애기 */
+	color: #000000;
+	text-decoration: none;
+}
+
+.login_div{
+	padding: 20px 190px;
+	background-color: rgba(155, 89, 182, 0.5);
+	text-align: right;
+}
+
+.login_btn{
+	font-size: 20px;
+	margin: 10px 0px;
+}
+
+#parent_div{
+	display: flex;
+	margin: 30px 0px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.child_div{
+	flex:1;
+	width: 550px;
+}
+
+#main_logo{
+	font-size: 50px;
+	font-weight: 900;
+}
+
+#search_text{
+	width: 350px;
+	height: 40px;
+	margin-top: 20px;
+}
+
+#search_btn{
+	height: 40px;
+	padding: 0px 15px;
+	margin-top: 20px;
+	background-color: rgba(155, 89, 182, 0.5);
+	border: none;
+	border-radius: 10px;
+}
+
+#shopping_cart_icon, #list_icon{
+	color: rgba(155, 89, 182, 0.5);
+	padding: 0px 20px;
+	margin-top: 20px;
+}
+
+#menu_div{
+	padding: 20px 190px;
+	background-color: rgba(155, 89, 182, 0.5);
+}

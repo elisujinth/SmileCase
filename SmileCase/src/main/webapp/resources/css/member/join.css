@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+#join_div {
+	margin: 50px 200px 100px 170px;
+	text-align: center;
+}
+
+#join_title {
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: default; /* 삼각형에 꼬리달린 모양 */
+}
+
+#joinForm {
+	border-radius: 10px;
+	background-color: #EEE;
+	padding: 50px;
+	width: 700px;
+    margin: 0 auto 30px auto;
+    border-top: 3px solid rgba(155, 89, 182, 0.5);
+}
+
+#joinForm table{
+	border-collapse: collapse;
+	margin: 0px auto;
+}
+
+#joinForm td{
+	border-bottom: 1px solid #999999;
+}
+
+#joinForm tr, #joinForm td{
+	height: 60px;
+	vertical-align: middle;
+}
+
+#joinForm span{
+	font-size: 10px;
+}
+
+#joinForm input{
+	width: 200px;
+	height: 28px;
+	margin-right: 5px;
+	padding: 5px 10px;
+	border-style: none;
+}
+
+#joinForm input:focus{
+	border: none;
+	outline: 2px solid rgba(155, 89, 182, 0.5);
+}
+
+#joinForm button{
+	width: 104px;
+	height: 28px;
+	margin-left: 5px;
+	border-style: none;
+	border-radius: 6px;
+	background-color: rgba(155, 89, 182, 0.5);
+	cursor: pointer;
+}
+
+.first_td{
+	width: 150px;
+	padding-right: 6px;
+	font-size: 15px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.second_td{
+	width: 230px;
+}
+
+.third_td{
+	width: 150px;
+	text-align: left;
+}
+
+#redDot{
+	color: red;
+	font-size: 16px;
+}
+
+#join_notice{ /* 필수입력항목 */
+	text-align: right;
+	color: gray;
+	font-size: 13px;
+}
+
+#regexp_id, #regexp_pwd, #regexp_email{ /* 정규식 안내 멘트 */
+	text-align: left;
+	display: none;
+	color: red;
+	font-weight: bold;
+}
+
+select{
+	width: 100px;
+	height: 28px;
+	border: none;
+}
+
+#address_tr td{
+	border-bottom: none;
+}
+
+
+#zoneCode, #mainAddress:hover{
+	cursor: default;
+}
+
+#zoneCode, #mainAddress:hover{
+	cursor: default;
+}
+
+#searchAddress_td{
+	text-align: left;
+}
+
+#submit_tr {
+	text-align: center;
+}
+
+#submit_tr td{
+	border-bottom: none;
+}
+
+#submit_tr button{
+	width: 200px;
+	height: 50px;
+	background-color: rgba(155, 89, 182, 0.5);
+	font-size: 16px;
+	border-style: none;
+	border-radius: 6px;
+	margin-top: 40px;
+	cursor: pointer;
+}

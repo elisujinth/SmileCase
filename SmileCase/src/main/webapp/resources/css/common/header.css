@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+a{
+	/* 하이퍼링크 밑줄 없애기 */
+	color: #000000;
+	text-decoration: none;
+}
+
+.login_div{
+	padding: 20px 250px;
+	background-color: rgba(155, 89, 182, 0.5);
+	text-align: right;
+}
+
+.login_btn{
+	font-size: 20px;
+	margin: 10px 0px;
+}
+
+#parent_div{
+	display: flex;
+	margin: 30px 250px;
+	text-align: center;
+}
+
+.child_div{
+	flex:1;
+	width: 550px;
+}
+
+#main_logo{
+	font-size: 50px;
+	font-weight: 900;
+}
+
+#icon_div{
+	text-align: right;
+}
+
+#icon_div a{
+	margin: 0px 10px;
+}
+
+#cart_icon{
+	width: 35px;
+	height: 35px;
+	vertical-align: bottom;
+}
+
+#list_icon
+{
+	width: 32px;
+	height: 40px;
+	vertical-align: bottom;
+}
+
+#menu_div{
+	padding: 20px 250px;
+	background-color: rgba(155, 89, 182, 0.5);
+}
+
+#bar{
+	margin: 0px 10px;
+	cursor: default;
+}

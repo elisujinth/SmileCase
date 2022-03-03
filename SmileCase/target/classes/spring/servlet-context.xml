@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- servlet-context.xml(DispatcherServlet Context): DispatcherServlet의 기반 설정을 기록하는 파일 -->
+		
+	<!-- Java의 Annotation 문법을 해석하게 하는 코드 -->
+	<annotation-driven />
+	
+	<!-- 정적 자원(화면에 보여주기 위한)을 매핑해주는 코드 (절대 경로를 짧게 만들어주는게 목적)
+		 location 위치에 있는 것을 사용할 때 mapping처럼 사용하겠다. -->
+	<resources mapping="/resources/**" location="/resources/" />
+	
+	<!-- View Resolver 설정
+		 Controller에서 Return하는 view 이름에 prefix(접두어), suffix(접미어)를 붙여서 jsp 페이지의 경로를 찾음
+		 ex) sj라는 String 타입의 view 이름을 Return하면, View Resolver는 "/WEB-INF/views/sj.jsp"를 찾음 -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- 객체를 주입할 때 이하의 패키지에서 검색하겠다. -->
+	<!-- 패키지명 이후 하위 패키지를 검색해 @Component 어노테이션을 포함하는 모든 클래스를 빈으로 자동 등록 -->
+	<context:component-scan base-package="com.spring.smileCase" />
+	
+	
+	
+</beans:beans>

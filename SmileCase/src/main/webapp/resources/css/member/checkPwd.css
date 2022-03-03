@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+#all_div{
+	margin: 50px 450px 100px 450px;
+	text-align: center;
+}
+
+#input_pwd{
+	width: 400px;
+	height: 30px;
+	margin: 20px 0px;
+	padding: 10px;
+	border: 0.5px solid lightgray;
+	font-size: 15px;
+}
+
+#input_pwd:focus{
+   border: none;
+   outline: 2px solid rgba(155, 89, 182, 0.5);
+}
+
+#input_button{
+	width: 150px;
+	height: 40px;
+	border: none;
+	background: rgba(155, 89, 182, 0.5);
+	border-radius: 10px;
+	font-size: 17px;
+	outline: none;
+	cursor: pointer;
+}

@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+#product_div{
+	margin: 50px 200px 10px 200px;
+	border-bottom: 1px solid gray;
+	display: flex;
+}
+
+#product_div img{
+	width: 200px;
+	height: 400px;
+}
+
+#img_div{
+	flex: 1;
+	margin: 50px 30px 50px 0px;
+	text-align: right;
+}
+
+#spec_div{
+	flex: 1;
+	margin: 140px 0px 140px 30px;
+	text-align: left;
+	font-size: 20px;
+	line-height: 50px;
+}
+
+#buy_input{
+	width: 100px;
+	height: 30px;
+	padding: 0px 10px;
+	border: 1px solid gray;
+	border-radius: 5px;
+}
+
+#buy_input:focus{
+	outline: none;
+}
+
+#cart_btn{
+    padding: 7px 10px;
+    background-color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#buy_btn{
+    padding: 7px 10px;
+    background-color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#update_btn, #delete_btn{
+	padding: 8px 10px;
+    background-color: rgba(254, 32, 32, 0.5);
+	border: none;
+	border-radius: 10px;
+	font-size: 14px;
+	color: black;
+}
+
+#review_all_div{
+	margin: 10px 200px 100px 200px;
+	border-top: 1px solid gray;
+	text-align: center;
+}
+
+textarea{
+	padding: 10px;
+	vertical-align: middle;
+	resize: none;
+	outline: none;
+	border-radius: 10px;
+}
+
+#input_button{
+	vertical-align: middle;
+	padding: 31px 25px;
+    background-color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.review_div{
+	width: 950px;
+	margin: 20px auto 0px auto;
+	padding: 10px;
+	border-top: 1px solid gray;
+	text-align: left;
+	font-size: 15px;
+}
+
+.review_content{
+	margin-top: 10px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+.reBtn{
+	outline: none;
+	border: none;
+	background-color: rgba(155, 89, 182, 0.3);
+	cursor: pointer;
+	font-size: 15px;
+	padding: 0px;
+}
+
+.reA{
+	background-color: rgba(155, 89, 182, 0.3);
+}

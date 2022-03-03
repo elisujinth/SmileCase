@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+#main_img_div{
+	margin: 50px 250px;
+	text-align: center;
+}
+
+#main_img{
+	width: 600px;
+	height: 400px;
+}

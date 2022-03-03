@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+#pw_find_div {
+	margin: 50px 450px 100px 450px;
+}
+
+#find_button_div {
+	padding-left: 100px;
+}
+
+.find_button {
+	background: #eee;
+	color: black;
+	border: none;
+	border-radius: 10px;
+	width: 120px;
+	height: 40px;
+	font-size: 14px;
+	font-weight: bold;
+	outline: none;
+	cursor: pointer;
+}
+
+#pw_find_message {
+	text-align: left;
+	font-size: 13px;
+	padding-left: 100px;
+}
+
+#pw_find_title {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#input_div {
+	margin: 0px 100px;
+	padding: 40px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	text-align: center;
+}
+
+.input {
+	width: 400px;
+	height: 30px;
+	border: 0.5px solid lightgray;
+	font-size: 15px;
+	padding: 10px;
+}
+.input:focus {
+   border: none;
+   outline: 2px solid rgba(155, 89, 182, 0.5);
+}
+
+#input_button_div {
+	text-align: center;
+}
+
+#input_button {
+	width: 150px;
+	height: 40px;
+	border: none;
+	background: rgba(155, 89, 182, 0.5);
+	border-radius: 10px;
+	font-size: 17px;
+	outline: none;
+	cursor: pointer;
+}
+
+#loading_div{
+	position: absolute;
+	left: 48%;
+	top: 56%;
+	background: none;
+}
+
+#loading_div img{
+	width: 60px;
+	heigh: 60px;
+}

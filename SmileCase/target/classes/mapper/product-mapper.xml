@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="productMapper">
+	
+	<!-- 상품 리스트 개수 - 전체 -->
+	<select id="allListCount" resultType="_int">
+		select count(*) 
+		from product
+	</select>
+	
+	<!-- 상품 리스트 개수 - 갤럭시 또는 아이폰 -->
+	<select id="partListCount" resultType="_int">
+		select count(*) 
+		from product
+		where PRO_CATEGORY = #{proCategory}
+	</select>
+	
+	<!-- 상품 목록보기 - 전체 -->
+	<select id="listProduct" resultMap="productResultMap">
+		select * 
+		from product
+		order by pro_no desc
+	</select>
+	<!-- 상품 목록보기 - 갤럭시 또는 아이폰 -->
+	<select id="partListProduct" resultMap="productResultMap">
+		select * 
+		from product
+		where PRO_CATEGORY = #{proCategory}
+		order by pro_no desc
+	</select>
+	<resultMap type="Product" id="productResultMap">
+		<id column="PRO_NO" property="pro_no"></id>
+		<result column="PRO_NAME" property="pro_name"></result>
+		<result column="PRO_PRICE" property="pro_price"></result>
+		<result column="PRO_STOCK" property="pro_stock"></result>
+		<result column="PRO_CATEGORY" property="pro_category"></result>
+		<result column="PRO_IMAGE" property="pro_originFileName"></result>
+	</resultMap>
+	
+	<!-- 상품 등록 -->
+	<insert id="insertProduct">
+		insert into product
+		values (SEQ_PRODUCT_NO.NEXTVAL, #{pro_name}, #{pro_price}, #{pro_stock}, #{pro_category}, #{pro_originFileName})
+	</insert>
+	
+	<!-- 상품 상세보기 -->
+	<select id="detailProduct" resultMap="productResultMap">
+		select * 
+		from product 
+		where pro_no = #{product_no}
+	</select>
+	
+	<!-- 상품 삭제하기 -->
+	<delete id="deleteProduct">
+		delete from product
+		where pro_no = #{proNo}
+	</delete>
+	
+	<!-- 리뷰 등록하기 -->
+	<insert id="reviewAdd">
+		insert into review
+		values (SEQ_REVIEW_NO.nextval, #{pro_no}, #{mem_id}, #{re_date}, #{re_content})
+	</insert>
+	
+	<!-- 리뷰 목록보기 -->
+	<select id="listReview" resultMap="reviewResultMap">
+		select * 
+		from review
+		where pro_no = #{proNo}
+		order by re_no desc 
+	</select>
+	<resultMap type="Review" id="reviewResultMap">
+		<id column="RE_NO" property="re_no"></id>
+		<result column="PRO_NO" property="pro_no"></result>
+		<result column="MEM_ID" property="mem_id"></result>
+		<result column="RE_DATE" property="re_date"></result>
+		<result column="RE_CONTENT" property="re_content"></result>
+	</resultMap>
+	
+	<!-- 장바구니 추가하기 -->
+	<insert id="cartAdd">
+		insert into cart
+		values (SEQ_CART_NO.NEXTVAL, #{pro_no}, #{mem_id}, #{ca_count})
+	</insert>
+	
+	<!-- 장바구니 목록보기 -->
+	<select id="cartList" resultMap="cartResultMap">
+		select c.ca_no, m.mem_id, p.pro_no, p.pro_name, p.pro_price, p.pro_image, c.ca_count
+		from cart c
+		join product p on c.pro_no = p.pro_no
+		join member m on c.mem_id = m.mem_id
+		where c.mem_id = #{loginUserId}
+		order by ca_no desc
+	</select>
+	<resultMap type="Cart" id="cartResultMap">
+		<id column="CA_NO" property="ca_no"></id>
+		<result column="PRO_NO" property="pro_no"></result>
+		<result column="MEM_ID" property="mem_id"></result>
+		<result column="CA_COUNT" property="ca_count"></result>
+		<result column="pro_name" property="pro_name"></result>
+		<result column="pro_price" property="pro_price"></result>
+		<result column="pro_image" property="pro_originFileName"></result>
+	</resultMap>
+	
+	<!-- 장바구니 삭제하기 -->
+	<delete id="cartDel">
+		delete from cart
+		where ca_no=#{caNo}
+	</delete>
+	
+	<!-- 장바구니 체크하기 -->
+	<select id="cartChk" resultType="_int">
+		select count(*) 
+		from cart
+		where pro_no = #{pro_no} and mem_id = #{mem_id}
+	</select>
+	
+	<!-- 장바구니 수량 변경 -->
+	<update id="cartUpdate">
+		update cart
+		set ca_count = #{ca_count}
+		where ca_no = #{ca_no}
+	</update>
+	
+	<!-- 상품 수정하기 -->
+	<update id="updateProduct">
+		update product
+		set pro_price = #{pro_price}, pro_stock = #{pro_stock}
+		where pro_no = #{pro_no}
+	</update>
+	
+	<!-- 리뷰 삭제하기 -->
+	<delete id="reviewDel">
+		delete from review
+		where re_no=#{reNo}
+	</delete>
+	
+	<!-- 리뷰 수정하기 -->
+	<update id="reviewUpdate">
+		update review
+		set re_content = #{re_content}
+		where re_no = #{re_no}
+	</update>
+</mapper>

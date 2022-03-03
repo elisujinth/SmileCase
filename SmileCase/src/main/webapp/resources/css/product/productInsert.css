@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+#all_div{
+	margin: 50px 250px 100px 250px;
+}
+
+#insert_title{
+	margin-bottom: 30px;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: default;
+}
+
+#insertForm{
+	border-radius: 10px;
+	background-color: #EEE;
+	padding: 50px;
+	width: 700px;
+    margin: 0 auto 30px auto;
+    border-top: 3px solid rgba(155, 89, 182, 0.5);
+}
+
+#insertForm table{
+	border-collapse: collapse;
+	margin: 0px auto;
+}
+
+#insertForm td{
+	border-bottom: 1px solid #999999;
+}
+
+#insertForm tr, #insertForm td{
+	height: 60px;
+	vertical-align: middle;
+}
+
+.first_td{
+	width: 150px;
+	text-align: center;
+}
+
+#file_td{
+	padding-left: 20px;
+}
+
+.insert_input{
+	width: 200px;
+	height: 28px;
+	margin-right: 5px;
+	padding: 5px 10px;
+	border-style: none;
+}
+
+.insert_input:focus{
+	border: none;
+	outline: 2px solid rgba(155, 89, 182, 0.5);
+}
+
+#insertForm button{
+	width: 120px;
+	height: 50px;
+	margin-top: 20px;
+	background-color: rgba(155, 89, 182, 0.5);
+	font-size: 16px;
+	border-style: none;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+#insert_tr td{
+	border: none;
+	text-align: center;
+}

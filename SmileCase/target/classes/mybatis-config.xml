@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+	<!-- 기본적인 세팅 -->
+	<settings>
+		<!-- NULL값이 들어갔을 때 어떻게 나올 것인지 => NULL은 모두 대문자로 적어야 함 -->
+		<setting name="jdbcTypeForNull" value="NULL"/>
+	</settings>
+	
+	<!-- 클래스 풀네임을 적지 않기 위해 별칭 지정 (ex. mapper에서) -->
+	<typeAliases>
+		<typeAlias type="com.spring.smileCase.member.model.vo.Member" alias="Member"/>
+		<typeAlias type="com.spring.smileCase.product.model.vo.Product" alias="Product"/>
+		<typeAlias type="com.spring.smileCase.product.model.vo.Review" alias="Review"/>
+		<typeAlias type="com.spring.smileCase.product.model.vo.Cart" alias="Cart"/>
+	</typeAliases>
+	
+	<!-- mapper 등록 -->
+	<mappers>
+		<mapper resource="/mapper/member-mapper.xml"/>
+		<mapper resource="/mapper/product-mapper.xml"/>
+	</mappers>
+</configuration>
